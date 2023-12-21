@@ -423,3 +423,4 @@ saveVerificationString:
 
 
 	.include "code/rando/fileInitialization.s"
+	.include "data/rando/startingItems.s"

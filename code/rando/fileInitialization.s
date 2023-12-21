@@ -141,6 +141,23 @@ randoInitializeFile:
 
 .endif ; ROM_AGES
 
+	; add starting items
+	ld hl,randovar_startingItems
+--
+	ld a,(hl)
+	cp a,$FF
+	jr z,+
+	inc hl
+	ld c,(hl)
+	ld b,a
+	push hl
+	callab treasureData.getTreasureDataBCE
+	pop hl
+	ld a,b
+	call giveTreasure
+	inc hl
+	jr --
++
 	ret
 
 
