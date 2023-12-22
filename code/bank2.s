@@ -3280,6 +3280,7 @@ playHeartBeepAtInterval:
 	ret z
 
 	ld a,(wFrameCounter)
+@timerCheck
 	and $3f
 	ret nz
 
