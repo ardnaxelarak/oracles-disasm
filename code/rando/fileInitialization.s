@@ -147,21 +147,24 @@ randoInitializeFile:
 
 	; add starting items
 	ld hl,randovar_startingItems
---
-	ld a,(hl)
+-
+	ldi a,(hl)
 	cp a,$FF
-	jr z,+
-	inc hl
+	jr z,++
 	ld c,(hl)
 	ld b,a
 	push hl
 	callab treasureData.getTreasureDataBCE
 	pop hl
 	ld a,b
+	cp a,$2D
+	jr nz,+
+	ld c,(hl)
++
 	call giveTreasure
 	inc hl
-	jr --
-+
+	jr -
+++
 	ret
 
 
