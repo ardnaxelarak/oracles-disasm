@@ -438,8 +438,7 @@ groups:
     text: |-
       \pos(2)You got a \col(1)Seed
       Satchel\col(0)! And it
-      has 20 \col(1)Ember
-      Seeds\col(0)!
+      has 20 \col(1)seeds\col(0)!
 
   - name: TX_002e
     index: 0x2e
