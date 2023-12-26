@@ -922,3 +922,14 @@ partOamData4fb91:
 	.db $14 $0c $06 $00
 	.db $14 $14 $06 $20
 
+partOamData_treasureMap:
+	.db $02
+	.db $08 $00 $00 $40
+	.db $08 $08 $00 $60
+
+partOamData_springBanana:
+	.db $04
+	.db $08 $00 $0c $04
+	.db $08 $08 $0c $24
+	.db $08 $00 $08 $07
+	.db $08 $08 $0a $07

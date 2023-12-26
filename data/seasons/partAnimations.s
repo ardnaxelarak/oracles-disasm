@@ -192,7 +192,6 @@ part01Animations:
 part0dAnimations:
 part10Animations:
 part14Animations:
-part15Animations:
 part30Animations:
 	.dw partAnimation573c7
 	.dw partAnimation573cc
@@ -370,6 +369,15 @@ part53Animations:
 	.dw partAnimation57735
 	.dw partAnimation57741
 	.dw partAnimation5774d
+
+part15Animations:
+	.dw partAnimation573c7
+	.dw partAnimation573cc
+	.dw partAnimation573d1
+	.dw partAnimation573d6
+	.dw partAnimation574fb
+	.dw partAnimation57500
+
 partAnimation573c7:
 	.db $7f $00 $00
 	m_AnimationLoop partAnimation573c7
@@ -835,7 +843,6 @@ part01OamDataPointers: ; 0x5775b
 part0dOamDataPointers: ; 0x5775b
 part10OamDataPointers: ; 0x5775b
 part14OamDataPointers: ; 0x5775b
-part15OamDataPointers: ; 0x5775b
 part30OamDataPointers: ; 0x5775b
 	.dw partOamData4f345
 	.dw partOamData4f34a
@@ -1174,3 +1181,11 @@ part53OamDataPointers: ; 0x57915
 	.dw partOamData4f39a
 	.dw partOamData4f546
 	.dw partOamData4f54f
+
+part15OamDataPointers:
+	.dw partOamData4f345
+	.dw partOamData4f34a
+	.dw partOamData4f465
+	.dw partOamData4f39f
+	.dw partOamData_treasureMap
+	.dw partOamData_springBanana

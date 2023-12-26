@@ -6125,7 +6125,7 @@ miscPuzzles_subid04:
 	call @spawnSubid
 	ld c,$06
 	call @spawnSubid
-	callab bank16.loadD6ChangingFloorPatternToBigBuffer
+	callab loadD6ChangingFloorPatternToBigBuffer
 	ret
 
 @spawnSubid:

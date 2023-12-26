@@ -2798,8 +2798,10 @@ partCode15:
 	jp partDelete
 
 @func_4e6e:
-	ldbc TREASURE_HEART_PIECE $02
-	call createTreasure
+
+	ld bc,rando.commonSlot_mapleItem
+	call spawnRandomizedTreasure
+
 	ret nz
 	ld l,Interaction.yh
 	ld a,(w1Link.yh)
@@ -2835,6 +2837,8 @@ partCode15:
 @setOamData:
 	ld e,Part.subid
 	ld a,(de)
+	cp a,$00
+	jr z,@heartPiece
 	ld c,a
 	add a
 	add c
@@ -2854,13 +2858,29 @@ partCode15:
 	ld (de),a
 	ld a,(hl)
 	jp partSetAnimation
+@heartPiece
+	ld e,Part.var36
+	ld a,(de)
+	ld h,d
+	ld l,Part.oamTileIndexBase
+	add (hl)
+	ld (hl),a
+	inc e ; var37
+	ld a,(de)
+	dec l ; oamFlags
+	ld (hl),a
+	dec l ; oamFlagsBackup
+	ld (hl),a
+	inc e
+	ld a,(de)
+	jp partSetAnimation
 
 @oamData:
-	.db $10 $02 $10
+	.db $00 $02 $00
 	.db $0a $01 $00
 	.db $08 $00 $00
 	.db $08 $00 $00
-	.db $00 $02 $0f
+	.db $00 $02 $02
 	.db $12 $02 $05
 	.db $14 $03 $06
 	.db $16 $01 $07

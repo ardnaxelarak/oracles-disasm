@@ -30,10 +30,19 @@
 ;   "slotsEnd" labels).
 ; - Remember to update the ITEM_SLOT_SIZE constant if the structure of this data is changed.
 
+slotsStart:
+
+; ==============================================================================
+; Common Slots
+; ==============================================================================
+
+commonSlot_mapleItem:
+	dwbe TREASURE_OBJECT_HEART_PIECE_02
+	.db  COLLECT_MODE_PICKUP_2HAND
+	dwbe $0000
+	.dw  commonSlotCallbackTable_mapleItem
 
 .ifdef ROM_SEASONS
-
-slotsStart:
 
 ; ==============================================================================
 ; Horon Village
@@ -1054,9 +1063,6 @@ slotsEnd:
 
 
 .else ; ROM_AGES
-
-
-slotsStart:
 
 ; ==============================================================================
 ; Forest of Time & Southern Shore

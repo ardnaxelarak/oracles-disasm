@@ -9606,6 +9606,13 @@ mapleSpawnItemDrops:
 	ld a,$05
 	ld (de),a
 
+; Always spawn heart piece if rando flag to do so is set
+	ld a,(randovar_forceMapleDrop)
+	cp $00
+	jr z,@nextMapleItem
+	ld a,$00
+	jr @preset
+
 @nextMapleItem:
 	ld e,SpecialObject.var03 ; If var03 is 0, rarer items will be dropped
 	ld a,(de)
@@ -9617,6 +9624,7 @@ mapleSpawnItemDrops:
 	call getRandomIndexFromProbabilityDistribution
 
 	ld a,b
+@preset
 	call @checkSpawnItem
 	jr c,+
 	jr nz,@nextMapleItem

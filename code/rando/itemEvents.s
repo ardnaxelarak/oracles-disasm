@@ -114,6 +114,14 @@ handleD6BossKeys:
 
 itemSlotCallbacksStart:
 
+commonSlotCallbackTable_mapleItem:
+	.dw $0000
+	.dw @isItemObtained
+@isItemObtained:
+	ld a,(wMapleState)
+	rlca
+	ret
+
 .ifdef ROM_SEASONS
 
 seasonsSlotCallbackTable_makuTree:

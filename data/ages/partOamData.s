@@ -959,3 +959,9 @@ partOamData53a7c:
 	.db $14 $0c $06 $00
 	.db $14 $14 $06 $20
 
+partOamData_tuniNut:
+	.db $04
+	.db $08 $00 $0c $07
+	.db $08 $08 $0c $27
+	.db $08 $00 $08 $03
+	.db $08 $08 $0a $03

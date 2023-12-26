@@ -686,7 +686,9 @@ partGetObjectGfxIndex:
 	ld hl,partData
 	add hl,bc
 	pop bc
-	ldi a,(hl)
+	push de
+	call partCheckLoadCustomSprite ; RANDO: Replace item sprite if necessary
+	pop de
 	ret
 
 ;;

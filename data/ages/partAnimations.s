@@ -205,7 +205,6 @@ part57Animations:
 part01Animations:
 part10Animations:
 part14Animations:
-part15Animations:
 part30Animations:
 part46Animations:
 	.dw partAnimation5b8c0
@@ -393,6 +392,14 @@ part59Animations:
 	.dw partAnimation5bbf0
 part5aAnimations:
 	.dw partAnimation5b8c0
+
+part15Animations:
+	.dw partAnimation5b8c0
+	.dw partAnimation5b8c5
+	.dw partAnimation5b8ca
+	.dw partAnimation5b8cf
+	.dw partAnimation5b9c5
+
 partAnimation5b8c0:
 	.db $7f $00 $00
 	m_AnimationLoop partAnimation5b8c0
@@ -824,7 +831,6 @@ part57OamDataPointers: ; 0x5bc04
 part01OamDataPointers: ; 0x5bc06
 part10OamDataPointers: ; 0x5bc06
 part14OamDataPointers: ; 0x5bc06
-part15OamDataPointers: ; 0x5bc06
 part2bOamDataPointers: ; 0x5bc06
 part30OamDataPointers: ; 0x5bc06
 part46OamDataPointers: ; 0x5bc06
@@ -1193,3 +1199,10 @@ part56OamDataPointers: ; 0x5bdf8
 
 part5aOamDataPointers: ; 0x5be00
 	.dw partOamData534a6
+
+part15OamDataPointers: ; 0x5bc06
+	.dw partOamData531de
+	.dw partOamData531e3
+	.dw partOamData53365
+	.dw partOamData53233
+	.dw partOamData_tuniNut

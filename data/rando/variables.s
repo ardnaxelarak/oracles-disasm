@@ -13,3 +13,7 @@ randovar_initialSeedType:
 ; "constants/rando.s" for values.
 randoConfig:
 	.db %00000000
+
+; if non-zero, maple will always drop her heart piece when encountered until it is picked up
+randovar_forceMapleDrop:
+	.db $00

@@ -152,3 +152,61 @@ setStolenFeatherSprite:
 	.db $ff
 
 .endif
+
+;;
+; Overrides the sprite data loaded for certain parts. This is currently only
+; used for Maple's drop, which depicts a treasure
+;
+; @param	hl	Pointer to partData (left untouched)
+; @param[out]	a	Pointer to gfx index to load for the sprite
+partCheckLoadCustomSprite:
+	push hl
+	ld e,Part.id
+	ld a,(de)
+	cp a,PARTID_ITEM_FROM_MAPLE_2
+	jp nz,@done
+	inc e
+	ld a,(de) ; subid
+	cp a,$00
+	jp nz,@done
+
+	push bc
+	ld bc,rando.commonSlot_mapleItem
+	callab rando.lookupItemSlot
+	call lookupItemSpriteWithProgression
+	pop bc
+	ldi a,(hl)
+
+	push af
+	ld e,Part.var36 ; set to oamTileIndexBase to use later
+	ldi a,(hl)
+	res 7,a
+	ld (de),a
+
+	inc e ; var37, set to oamFlags to use later
+	ld a,(hl)
+	swap a
+	and $0F
+	ld (de),a
+
+	inc e ; var38, set to animation index to use later
+	ld a,(hl)
+	and $0F
+	ld hl,@mapTreasureToPart
+	rst_addAToHl
+	ld a,(hl)
+	ld (de),a
+	pop af
+
+	pop hl
+	inc hl
+	ret
+
+@done:
+	pop hl
+	ldi a,(hl)
+	ret
+
+@mapTreasureToPart:
+	.db $00 $00 $03 $02 $00 $00 $04 $00
+	.db $00 $00 $05 $00 $00 $04 $00 $00
