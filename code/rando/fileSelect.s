@@ -69,13 +69,20 @@ drawRandoFileSelectString:
 	; first load custom font
 	ld b,$19 ; 26*16 bytes
 	ld c,:randoCustomFontLetters
-	ld de,$8e21
+	ld de,$9420
 	ld hl,randoCustomFontLetters
+	call queueDmaTransfer
+
+	; load lower case
+	ld b,$19 ; 26*16 bytes
+	ld c,:randoCustomFontLowercase
+	ld de,$9620
+	ld hl,randoCustomFontLowercase
 	call queueDmaTransfer
 ++
 	ld b,3 ; 4*16 bytes
 	ld c,:randoCustomFontPunct
-	ld de,$8fc1
+	ld de,$95c0
 	ld hl,randoCustomFontPunct
 	call queueDmaTransfer
 

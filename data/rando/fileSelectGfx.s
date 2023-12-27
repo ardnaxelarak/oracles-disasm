@@ -4,6 +4,9 @@
 ; The characters are one tile each and roughly match the single-tile digits.
 ; These need to be loaded in two steps due to DMA transfer limitations?
 
+randoCustomFontLowercase:
+	.incbin "build/gfx/fileSelectLowercase.bin"
+
 randoCustomFontLetters:
 	.db $00,$ff,$3c,$ff,$66,$ff,$66,$ff,$7e,$ff,$66,$ff,$66,$ff,$00,$ff
 	.db $00,$ff,$7c,$ff,$66,$ff,$7c,$ff,$66,$ff,$66,$ff,$7c,$ff,$00,$ff
@@ -39,9 +42,9 @@ randoCustomFontPunct:
 	.db $00,$ff,$00,$ff,$00,$ff,$00,$ff,$00,$ff,$18,$ff,$18,$ff,$00,$ff
 
 randoFileSelectStringAttrs:
-	.db $0a,$0a,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$2a,$2a
+	.db $0a,$0a,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$2a,$2a
 	.db $0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a ; offscreen
-	.db $0a,$0a,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$0e,$2a,$2a
+	.db $0a,$0a,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$06,$2a,$2a
 	.db $0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a,$0a ; offscreen
 
 ; This will be modified by the randomizer.
