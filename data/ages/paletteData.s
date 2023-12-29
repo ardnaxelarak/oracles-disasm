@@ -4253,3 +4253,18 @@ fileSelectSpritePaletteData:
 	m_RGB16 $00 $00 $00
 	m_RGB16 $02 $15 $08
 	m_RGB16 $1f $1a $11
+
+	m_RGB16 $1f $1f $1f
+	m_RGB16 $00 $00 $00
+	m_RGB16 $03 $10 $1f
+	m_RGB16 $1f $1a $11
+
+	m_RGB16 $1f $1f $1f
+	m_RGB16 $00 $00 $00
+	m_RGB16 $1f $01 $05
+	m_RGB16 $1f $1a $11
+
+	m_RGB16 $1f $1f $1f
+	m_RGB16 $00 $00 $00
+	m_RGB16 $1f $0f $01
+	m_RGB16 $1f $1a $11
