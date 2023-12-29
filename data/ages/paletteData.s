@@ -4247,3 +4247,9 @@ paletteData5960:
 	m_RGB16 $0a $0a $0a
 	m_RGB16 $00 $00 $00
 
+; extracting palette from file select screen to make it easier to write palette changes
+fileSelectSpritePaletteData:
+	m_RGB16 $1f $1f $1f
+	m_RGB16 $00 $00 $00
+	m_RGB16 $02 $15 $08
+	m_RGB16 $1f $1a $11

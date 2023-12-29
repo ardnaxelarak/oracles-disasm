@@ -428,7 +428,6 @@ oamData_15_4e0c:
 	.include "build/data/tilesetCollisions.s"
 	.include "build/data/smallRoomLayoutTables.s"
 
-
 .BANK $17 SLOT 1
 .ORG 0
 

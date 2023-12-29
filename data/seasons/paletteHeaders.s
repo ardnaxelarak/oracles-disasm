@@ -205,12 +205,12 @@ paletteHeader04:
 paletteHeader05:
 	m_PaletteHeaderBg  0, 1, paletteData4830, $80
 	m_PaletteHeaderBg  2, 5, paletteData5db8, $80
-	m_PaletteHeaderSpr 0, 4, standardSpritePaletteData, $80
+	m_PaletteHeaderSpr 0, 4, fileSelectSpritePaletteData, $80
 	m_PaletteHeaderSpr 4, 3, paletteData5d98, $00
 paletteHeader06:
 	m_PaletteHeaderBg  0, 1, paletteData4830, $80
 	m_PaletteHeaderBg  2, 5, paletteData5de0, $80
-	m_PaletteHeaderSpr 0, 4, standardSpritePaletteData, $80
+	m_PaletteHeaderSpr 0, 4, fileSelectSpritePaletteData, $80
 	m_PaletteHeaderSpr 4, 3, paletteData5d98, $00
 paletteHeader07:
 	m_PaletteHeaderBg  0, 8, paletteData4098, $80
