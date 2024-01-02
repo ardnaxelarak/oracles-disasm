@@ -64,6 +64,10 @@ randoInitializeFile:
 	ld (wPastRoomFlags+$2a),a ; winter tower
 	ld (wPastRoomFlags+$53),a ; strange brothers stealing feather
 
+	; room flag 5 (item obtained)
+	ld a,$20
+	ld (wPastRoomFlags+$60),a ; strange brothers hiding spot
+
 	; Fix initial season
 	ld hl,bank1.roomPackSeasonTable+$10 ; North Horon season
 	ld e,:bank1.roomPackSeasonTable
