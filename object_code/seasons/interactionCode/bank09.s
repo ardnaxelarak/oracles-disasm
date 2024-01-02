@@ -3925,10 +3925,19 @@ func_6964:
 	call spawnHider
 	ldbc $02 INTERACID_STRANGE_BROTHERS_HIDING
 	call spawnHider
-	ld a,TREASURE_FEATHER
-	call checkTreasureObtained
+
+	; normally check for feather to standardize hiding pattern
+	; but in rando we care about whether the item has been gotten
+	; ld a,TREASURE_FEATHER
+	; call checkTreasureObtained
+	; ld a,$01
+	; jr nc,+
+
+	ld a,$60
+	call getThisRoomFlags
+	bit 5,(hl)
 	ld a,$01
-	jr nc,+
+	jr z,+
 	call getRandomNumber
 	and $01
 +

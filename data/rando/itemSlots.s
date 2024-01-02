@@ -430,6 +430,12 @@ seasonsSlot_subrosianSmithy:
 	dwbe $0397
 	.dw  $0000
 
+seasonsSlot_strangeBrothers:
+	dwbe TREASURE_OBJECT_FOOLS_ORE_00
+	.db  COLLECT_MODE_PICKUP_2HAND
+	dwbe $0160
+	.dw  $0000
+
 ; ==============================================================================
 ; D0
 ; ==============================================================================

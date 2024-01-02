@@ -1872,13 +1872,13 @@ strangeBrothersFunc_15_5dc4:
 	bit 5,(hl)
 	jr nz,strangeBrothersFunc_15_5ddb
 
-	; RANDO: Spawn either the feather (subid $02) or cape (subid $03).
-	;ldbc TREASURE_FEATHER $02
-	ld b,TREASURE_FEATHER
-	ld a,(wFeatherLevel)
-	inc a
-	ld c,a
-	jr strangeBrothersFunc_15_5e00
+	; ldbc TREASURE_FEATHER $02
+	; jr strangeBrothersFunc_15_5e00
+
+	; RANDO: Spawn randomized treasure
+	ld bc,rando.seasonsSlot_strangeBrothers
+	call spawnRandomizedTreasure
+	jr strangeBrothersFunc_15_5e0a
 
 strangeBrothersFunc_15_5ddb:
 	ld a,(wNumTimesPlayedStrangeBrothersGame)

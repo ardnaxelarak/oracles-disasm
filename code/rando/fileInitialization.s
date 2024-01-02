@@ -62,6 +62,7 @@ randoInitializeFile:
 	ld (wPastRoomFlags+$00),a ; d8 entrance
 	ld (wPastRoomFlags+$29),a ; temple of seasons "gate"
 	ld (wPastRoomFlags+$2a),a ; winter tower
+	ld (wPastRoomFlags+$53),a ; strange brothers stealing feather
 
 	; Fix initial season
 	ld hl,bank1.roomPackSeasonTable+$10 ; North Horon season
