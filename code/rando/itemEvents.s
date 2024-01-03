@@ -122,6 +122,15 @@ commonSlotCallbackTable_mapleItem:
 	rlca
 	ret
 
+commonSlotCallbackTable_gashaItem:
+	.dw $0000
+	.dw @isItemObtained
+@isItemObtained:
+	ld a,(wGashaSpotFlags)
+	rrca
+	rrca
+	ret
+
 .ifdef ROM_SEASONS
 
 seasonsSlotCallbackTable_makuTree:

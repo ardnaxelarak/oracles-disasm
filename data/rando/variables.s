@@ -14,6 +14,8 @@ randovar_initialSeedType:
 randoConfig:
 	.db %00000000
 
-; if non-zero, maple will always drop her heart piece when encountered until it is picked up
-randovar_forceMapleDrop:
+; rando variables to change behavior of hard-to-get heart pieces
+; bit 0 - if set, maple will always drop her heart piece when encountered until it is picked up
+; bit 1 - if set, the first gasha nut harvested will yield the heart piece
+randovar_forceDrops:
 	.db $00

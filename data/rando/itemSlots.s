@@ -42,6 +42,12 @@ commonSlot_mapleItem:
 	dwbe $0000
 	.dw  commonSlotCallbackTable_mapleItem
 
+commonSlot_gashaItem:
+	dwbe TREASURE_OBJECT_HEART_PIECE_02
+	.db  COLLECT_MODE_PICKUP_2HAND
+	dwbe $0000
+	.dw  commonSlotCallbackTable_gashaItem
+
 .ifdef ROM_SEASONS
 
 ; ==============================================================================

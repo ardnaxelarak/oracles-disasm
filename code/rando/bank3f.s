@@ -20,6 +20,17 @@ checkLoadCustomSprite:
 	call searchDoubleKey
 	jr nc,@done
 
+	; INTERACID_GASHA_SPOT uses subid for gasha spot index at first and then
+	; gasha treasure index later. We want to replace the sprite if the latter
+	; is zero, but not the former, so check that it's in the proper state
+	ld a,b
+	cp INTERACID_GASHA_SPOT
+	jr nz,+
+	ld e,Interaction.state
+	ld a,(de)
+	cp $05
+	jr nz,@done
++
 	ldi a,(hl)
 	ld c,a
 	ld b,(hl)
@@ -114,6 +125,8 @@ lookupItemSpriteWithProgression:
 ; - SubID
 ; - Item slot to use for gfx (little-endian word)
 customSpriteLookupTable:
+
+	dbbw INTERACID_GASHA_SPOT,             $00, rando.commonSlot_gashaItem
 
 .ifdef ROM_SEASONS
 

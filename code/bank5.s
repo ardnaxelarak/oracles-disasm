@@ -9607,8 +9607,8 @@ mapleSpawnItemDrops:
 	ld (de),a
 
 ; Always spawn heart piece if rando flag to do so is set
-	ld a,(randovar_forceMapleDrop)
-	cp $00
+	ld a,(randovar_forceDrops)
+	bit 0,a
 	jr z,@nextMapleItem
 	ld a,$00
 	jr @preset

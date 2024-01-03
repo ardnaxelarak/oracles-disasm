@@ -930,11 +930,19 @@ interactionCodeb6:
 	; Check if this is the first gasha nut harvested ever
 	ld hl,wGashaSpotFlags
 	bit 0,(hl)
-	jr nz,+
+	jr nz,++
 	set 0,(hl)
-	ld b,GASHATREASURE_TIER3_RING
+
+  ; RANDO - if flag is set, always drop heart piece/randomized item on first nut
+	ld a,(randovar_forceDrops)
+	bit 1,a
+	jr z,+
+	ld b,GASHATREASURE_HEART_PIECE
 	jr @spawnTreasure
 +
+	ld b,GASHATREASURE_TIER3_RING
+	jr @spawnTreasure
+++
 	; Get a value of 0-4 in 'c', based on the range of wGashaMaturity (0 = best
 	; prizes, 4 = worst prizes)
 	ld c,$00
@@ -1018,6 +1026,14 @@ interactionCodeb6:
 	ld a,b
 	ld e,Interaction.subid
 	ld (de),a
+
+	; RANDO - replace heart piece with item in gashaItem item slot
+	cp GASHATREASURE_HEART_PIECE
+	jr nz,+
+	ld bc,rando.commonSlot_gashaItem
+	call giveTreasureCustom
+	jr ++
++
 	ld hl,@gashaTreasures
 	rst_addDoubleIndex
 	ldi a,(hl)
@@ -1028,7 +1044,7 @@ interactionCodeb6:
 +
 	ld b,a
 	call giveTreasure
-
+++
 	; Set Link's animation
 	ld hl,wLinkForceState
 	ld a,LINK_STATE_04
@@ -1059,9 +1075,11 @@ interactionCodeb6:
 	ld c,(hl)
 	ld b,>TX_3500
 
-	; RANDO: Don't show text for rings (the "giveTreasure" function will do that)
+	; RANDO: Don't show text for rings or heart piece (the "giveTreasure" function will do that)
 	ld a,c
 	cp <TX_3504
+	ret z
+	cp <TX_3503
 	ret z
 	jp showText
 
