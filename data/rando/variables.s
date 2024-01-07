@@ -19,3 +19,8 @@ randoConfig:
 ; bit 1 - if set, the first gasha nut harvested will yield the heart piece
 randovar_forceDrops:
 	.db $00
+
+; rando variables to change goal behavior
+; bits 0-3 - number of essences to get Maku seed
+randovar_goal:
+	.db $08

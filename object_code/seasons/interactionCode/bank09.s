@@ -7120,21 +7120,35 @@ makuTree_setAppropriateStage:
 	jr c,+
 	xor a
 +
-	; dungeon 1,2,3,5?
-	cp $17
-	jr z,@highestEssenceIs5Except4
-	; dungeon 1 to 5?
-	cp $1f
-	jr z,@highestEssenceIs5
-
 	; RANDO: Set stage by NUMBER of essences obtained, not the LATEST essence obtained.
 	; This is important for the maku seed cutscene.
-	;call getHighestSetBit
+
+	; ; dungeon 1,2,3,5?
+	; cp $17
+	; jr z,@highestEssenceIs5Except4
+	; ; dungeon 1 to 5?
+	; cp $1f
+	; jr z,@highestEssenceIs5
+
+	; call getHighestSetBit
 	call getNumSetBits
 
 	jr nc,+
 	inc a
 +
+
+	; RANDO: if goal set to fewer than 8 essences, pretend we have 8 if we have the requisite number
+	; TODO: if goal is zero, make sure item is still obtained first
+	push af
+	ld a,(randovar_goal)
+	and $0F
+	ld b,a
+	pop af
+	cp b
+	jr c,+
+	ld a,$08
++
+
 	; 0 if no essences, 1-8 based on highest essence, otherwise
 	call @setStage
 	cp $01

@@ -5086,10 +5086,18 @@ interactionCode87_rando_getMakuTreeState:
 	and ROOMFLAG_ITEM
 	jr z,@returnActual
 
-	; Skip to the "give maku seed" state if we have all the essences
+	; Skip to the "give maku seed" state if the goal number of essences
 	ld a,(wEssencesObtained)
-	inc a
-	jr nz,@returnActual
+	call getNumSetBits
+
+	push af
+	ld a,(randovar_goal)
+	and $0F
+	ld b,a
+	pop af
+	cp b
+	jr c,@returnActual
+
 	ld a,TREASURE_MAKU_SEED
 	call checkTreasureObtained
 	jr c,@returnActual
