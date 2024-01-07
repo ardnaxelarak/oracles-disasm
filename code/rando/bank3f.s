@@ -28,7 +28,7 @@ checkLoadCustomSprite:
 	jr nz,+
 	ld e,Interaction.state
 	ld a,(de)
-	cp $05
+	cp $06
 	jr nz,@done
 +
 	ldi a,(hl)
