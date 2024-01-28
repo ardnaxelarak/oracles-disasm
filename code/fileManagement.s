@@ -29,6 +29,9 @@ initializeFile:
 	ld l,a
 	call initializeFileVariables
 
+	; rando: load starting item data
+	call randoInitializeStartingEquipment
+
 	; Clear unappraised rings
 	pop af
 	ld c,a

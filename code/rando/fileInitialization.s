@@ -1,3 +1,34 @@
+randoInitializeStartingEquipment:
+	push hl
+	ld hl, rando_startingRings
+	ld de, wRingsObtained
+	ld b, 8
+	call copyMemory
+
+	ld hl, rando_startingDungeonSmallKeys
+	ld de, wDungeonSmallKeys
+	ld b, wTradeItem-wDungeonSmallKeys
+	call copyMemory
+
+.ifdef ROM_SEASONS
+	ld a, (rando_startingInsertedJewels)
+	ld (wInsertedJewels), a
+	ld hl, rando_startingSwitchHookLevel
+	ld de, wSwitchHookLevel
+	ld b, 3
+	call copyMemory
+.else
+	ld a, (rando_startingNumSlates)
+	ld (wNumSlates), a
+	ld hl, rando_startingSlingshotLevel
+	ld de, wSlingshotLevel
+	ld b, 4
+	call copyMemory
+.endif
+
+	pop hl
+	ret
+
 ;;
 ; Called after all other file initialization is done
 randoInitializeFile:
@@ -149,27 +180,6 @@ randoInitializeFile:
 	ld (wObtainedSeasons),a
 
 .endif ; ROM_AGES
-
-	; add starting items
-	ld hl,randovar_startingItems
--
-	ldi a,(hl)
-	cp a,$FF
-	jr z,++
-	ld c,(hl)
-	ld b,a
-	push hl
-	callab treasureData.getTreasureDataBCE
-	pop hl
-	ld a,b
-	cp a,$2D
-	jr nz,+
-	ld c,(hl)
-+
-	call giveTreasure
-	inc hl
-	jr -
-++
 	ret
 
 
